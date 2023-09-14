@@ -1,5 +1,5 @@
 'use client'
-import SearchBar from "../_components/SearchBar"
+import SearchBar from "@/app/_components/SearchBar/index"
 import { useState } from "react"
 
 const UserPage = () => {

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import SearchBar from "./_components/SearchBar"
+import SearchBar from "../_components/SearchBar/index"
 
 // import Image from 'next/image'
 
