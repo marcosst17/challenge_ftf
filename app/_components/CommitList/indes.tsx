@@ -16,7 +16,7 @@ const CommitList = ({commits}:CommitListProps) => {
                                 date={el.commit.author.date} 
                                 message={el.commit.message}
                                 html_url={el.html_url} 
-                                key={el.id}
+                                key={el.html_url}
                             />
                 })
                 :
