@@ -23,7 +23,7 @@ const SearchBar = ({setSearchState, searchState}:SearchBar) => {
     }
 
     return (
-        <div>
+        <div className="searchbar-main">
            <form onSubmit={handleSubmit}>
                 <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                 <div className="relative">
