@@ -6,10 +6,10 @@ type configObject = {
     headers:{}
 }
 
-const callOctokit = async (apiRoute:string, username:string, repo?:string) => {
+const callOctokit = async (apiRoute:string, username:string, repo?:string, caller?:string) => {
 
     const octokit = new Octokit({
-        auth: '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'
+        auth: process.env.NEXT_PUBLIC_GH_TOKEN
     })
 
     const configObject:configObject = {
