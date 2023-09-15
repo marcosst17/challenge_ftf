@@ -37,8 +37,7 @@ const RepositoryList = ({repos}:RepositoryListProps) => {
             setOnStartup(false)
         }
         if(repos?.length > 0) {
-            let forked = repos.filter((el:any) => el.fork)
-            setAllRepos(forked)
+            setAllRepos(repos)
         }
     }, [repos, isChecked, onStartup])
 
