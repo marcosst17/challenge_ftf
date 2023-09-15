@@ -6,6 +6,7 @@ type configObject = {
     headers:{}
 }
 
+// See usage explanation below
 const callOctokit = async (apiRoute:string, username:string, repo?:string, caller?:string) => {
 
     const octokit = new Octokit({
@@ -28,3 +29,9 @@ const callOctokit = async (apiRoute:string, username:string, repo?:string, calle
 }
 
 export default callOctokit
+
+// Helper function to make authenticated requests against the GitHub API using octokit
+// Parameters:
+// apiRoute: The API's URL to make the request
+// username: Github username
+// repo: Optional parameter, used for requests that need the "repo" property on the config object

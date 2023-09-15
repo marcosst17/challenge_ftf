@@ -14,7 +14,9 @@ const UsernamePage = ({params}:any) => {
 
     return (
         <div className="text-slate-100 font-bold">
-            <p>{params.username}</p>
+            <div className="m-auto mt-[2rem] w-1/4 text-center">
+                <p >{`${params.username}'s Repositories`}</p>
+            </div>
             <RepositoryList repos={userRepositories} />
         </div>
     )
