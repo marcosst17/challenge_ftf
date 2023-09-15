@@ -19,6 +19,7 @@ body {
 
 .nav-row {
   width: -webkit-fill-available;
+  text-align: center;
 }
 
 .searchbar-main {
@@ -101,6 +102,26 @@ input:checked + .slider:before {
   min-height: 100px;
 }
 
+.commit-relative{
+  position: relative;
+}
+
+.commit-message-div {
+  width: 93%;
+}
+
 .commit-icon {
   width: 24px;
+  position: absolute;
+  right: 10px;
+}
+
+@media (min-width: 1024px) {
+  .commit-message-div {
+    width: 100%;
+  }
+  .commit-icon {
+    position: initial;
+    width: 24px;
+  }
 }

@@ -49,7 +49,7 @@ const RepositoryList = ({repos}:RepositoryListProps) => {
                 <p className="secondary-text">Show Forked Repos</p>
                 <ToggleComponent handleToggle={handleToggle} isChecked={isChecked} />
             </div>
-            <div className="flex flex-col p-8 gap-4 w-1/2 m-auto">
+            <div className="flex flex-col p-8 gap-4 lg:w-1/2 m-auto">
                 {
                     reposShown?.length > 0 ?
                     reposShown.map(el => {

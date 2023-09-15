@@ -14,12 +14,12 @@ const CommitItem = ({author, date, message, html_url}:CommitItemProps) => {
     const formattedDate = formatDate(date)
 
     return (
-        <div className="bg-neutral-800 p-4 shadow-lg flex flex-row w-1/2 m-auto">
+        <div className="bg-neutral-800 p-4 commit-relative shadow-lg flex flex-row lg:w-1/2 lg:m-auto">
             <div className="flex flex-col">
                 <a href={html_url} target="_blank">
-                    <div className="flex flex-row align-baseline mb-2">
+                    <div className="flex flex-row commit-message-div align-baseline mb-2">
                         <svg viewBox="0 0 24 24" focusable="false" className="commit-icon"><g fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><path d="M15 3h6v6"></path><path d="M10 14L21 3"></path></g></svg>
-                        <h2 className="text-xl primary-text font-bold underline underline-offset-4 ml-2 tracking-wide">{message}</h2>
+                        <h2 className="text-xl primary-text font-bold underline underline-offset-4 tracking-wide">{message}</h2>
                     </div>
                 </a>
                 <p className="secondary-text text-sm">{author}</p>

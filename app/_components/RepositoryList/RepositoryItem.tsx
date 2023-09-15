@@ -17,8 +17,8 @@ const RepositoryItem = ({repoName, repoOwner, openIssues, htmlUrl, forked, updat
     const formattedDate = formatDate(updatedAt)
 
     return (
-            <div className="bg-neutral-800 p-4 shadow-lg flex flex-row">
-                <div className="w-1/2 flex flex-col">
+            <div className="bg-neutral-800 justify-between p-4 shadow-lg flex flex-row">
+                <div className="lg:w-1/2 flex flex-col">
                     <Link href={`/user/${repoOwner}/${repoName}`}>
                         <h2 className="text-xl primary-text font-bold mb-2 underline underline-offset-4 tracking-wide">{repoName}</h2>
                     </Link>
@@ -26,7 +26,7 @@ const RepositoryItem = ({repoName, repoOwner, openIssues, htmlUrl, forked, updat
                     <p className="secondary-text text-sm">{repoOwner}</p>
                     <p className="secondary-text text-sm">Last update: {formattedDate}</p>
                 </div>
-                <div className="w-1/2 flex flex-col items-end card-right-div gap-4">
+                <div className="lg:w-1/2 flex flex-col items-end card-right-div gap-4">
                     <p className="secondary-text text-sm">Issues: {openIssues}</p>
                     <a href={htmlUrl} target="_blank" className="flex">
                         <p className="mr-2">URL</p>

@@ -20,8 +20,8 @@ export default function RootLayout({children}:{children: React.ReactNode}) {
           <Link href="/">
             <h1 className="text-2xl font-bold main-title text-center">FTF - Github Commit History</h1>
           </Link>
-          <div className="main-nav w-1/2 m-auto">
-            <div className="mt-2 flex nav-row nav-row-links">
+          <div className="main-nav lg:w-1/2 m-auto">
+            <div className="mt-2 lg:flex nav-row nav-row-links">
               <p className="mx-2">Enter a github username</p>
             </div>
             <div className="mt-2 flex nav-row">
