@@ -1,3 +1,4 @@
+import formatDate from '@/app/_utils/formatDate'
 import Link from 'next/link'
 
 type RepositoryItemProps = {
@@ -12,21 +13,14 @@ type RepositoryItemProps = {
 
 const RepositoryItem = ({repoName, repoOwner, openIssues, htmlUrl, forked, updatedAt, language}:RepositoryItemProps) => {
     
-
-    const date = new Date(updatedAt)
-    const formattedDate = new Intl.DateTimeFormat('en-GB', {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-    }).format(date);
+    // Formats the date into "DD/MM/YYYY, HH:mm"
+    const formattedDate = formatDate(updatedAt)
 
     return (
             <div className="bg-neutral-800 p-4 shadow-lg flex flex-row">
                 <div className="w-1/2 flex flex-col">
                     <Link href={`/user/${repoOwner}/${repoName}`}>
-                        <h2 className="text-xl primary-text font-bold mb-2 underline">{repoName}</h2>
+                        <h2 className="text-xl primary-text font-bold mb-2 underline underline-offset-4 tracking-wide">{repoName}</h2>
                     </Link>
                     <p className="secondary-text text-sm min-h-[20px]">{language}</p>
                     <p className="secondary-text text-sm">{repoOwner}</p>

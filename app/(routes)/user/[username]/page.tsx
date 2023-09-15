@@ -7,6 +7,7 @@ const UsernamePage = ({params}:any) => {
     const [userRepositories, setUserRepositories] = useState([])
 
     useEffect(() => {
+        // Get the repositories that belong to a given user and are publicly available
         callOctokit("/users/{owner}/repos", params.username).then(data => {
             setUserRepositories(data.data)
         })

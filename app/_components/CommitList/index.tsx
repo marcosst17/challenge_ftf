@@ -7,7 +7,7 @@ interface CommitListProps {
 const CommitList = ({commits}:CommitListProps) => {
 
     return (
-        <div className="main flex flex-col p-8 gap-2">
+        <div className="main flex flex-col p-8 gap-4">
             {
                 commits?.length > 0 ?
                 commits.map(el => {

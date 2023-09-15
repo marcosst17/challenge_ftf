@@ -100,3 +100,7 @@ input:checked + .slider:before {
 .card-right-div {
   min-height: 100px;
 }
+
+.commit-icon {
+  width: 24px;
+}

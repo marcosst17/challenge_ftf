@@ -1,7 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
 import ToggleComponent from "../Toggle/index"
-import FilterComponent from "../Toggle/index"
 import RepositoryItem from "./RepositoryItem"
 
 type RepositoryListProps = {
@@ -18,6 +17,7 @@ const RepositoryList = ({repos}:RepositoryListProps) => {
     const [isChecked, setIsChecked] = useState(false);
 
     const handleToggle = () => {
+        // Toggle between not forked repositories and all repositories
         setIsChecked((prevState) => {
             if(!prevState){
                 setReposShown(allRepos)
@@ -31,6 +31,7 @@ const RepositoryList = ({repos}:RepositoryListProps) => {
 
     useEffect(() => {
         if(onStartup && repos?.length > 0){
+            // Check once to fill state
             let notForked = repos.filter((el:any) => !el.fork)
             setFilteredRepos(notForked)
             setReposShown(notForked)
@@ -39,7 +40,7 @@ const RepositoryList = ({repos}:RepositoryListProps) => {
         if(repos?.length > 0) {
             setAllRepos(repos)
         }
-    }, [repos, isChecked, onStartup])
+    }, [repos, onStartup])
 
 
     return (
