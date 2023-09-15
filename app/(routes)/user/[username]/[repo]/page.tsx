@@ -6,11 +6,15 @@ import React, { useEffect, useState } from "react"
 const RepoPage = ({params}:any) => {
 
     const [repoCommits, setRepoCommits] = useState([])
+    const [error, setError] = useState(false)
 
     useEffect(() => {
         // Get the commits of a given repository
         callOctokit("/repos/{owner}/{repo}/commits", params.username, params.repo).then(data => {
             setRepoCommits(data.data)
+        }).catch((err) => {
+            setRepoCommits([])
+            setError(true)
         })
     }, [params.username, params.repo])
 
@@ -19,7 +23,7 @@ const RepoPage = ({params}:any) => {
             <div className="m-auto mt-[2rem] lg:w-1/4 text-center">
                 <p>{params.repo}</p>
             </div>
-            <CommitList commits={repoCommits} />
+            <CommitList commits={repoCommits} error={error} />
         </div>
     )
 }

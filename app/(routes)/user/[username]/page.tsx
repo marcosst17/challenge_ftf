@@ -5,11 +5,15 @@ import React, { useEffect, useState } from "react"
 const UsernamePage = ({params}:any) => {
 
     const [userRepositories, setUserRepositories] = useState([])
+    const [error, setError] = useState(false)
 
     useEffect(() => {
         // Get the repositories that belong to a given user and are publicly available
         callOctokit("/users/{owner}/repos", params.username).then(data => {
             setUserRepositories(data.data)
+        }).catch(() => {
+            setUserRepositories([])
+            setError(true)
         })
     }, [params.username])
 
@@ -18,7 +22,7 @@ const UsernamePage = ({params}:any) => {
             <div className="m-auto mt-[2rem] lg:w-1/4 text-center">
                 <p >{`${params.username}'s Repositories`}</p>
             </div>
-            <RepositoryList repos={userRepositories} />
+            <RepositoryList repos={userRepositories} error={error} />
         </div>
     )
 }

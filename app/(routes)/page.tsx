@@ -8,7 +8,6 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col text-center items-center justify-between p-6">
-      
       <div>
         <div>
           <h1 className="text-4xl font-bold mb-6 primary-text">Development Information</h1>

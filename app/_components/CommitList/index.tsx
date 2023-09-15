@@ -3,10 +3,11 @@ import Spinner from "../IconLibrary/Spinner"
 import CommitItem from "./CommitItem"
 
 interface CommitListProps {
-    commits:any[]
+    commits:any[],
+    error:boolean,
 }
 
-const CommitList = ({commits}:CommitListProps) => {
+const CommitList = ({commits, error}:CommitListProps) => {
 
     const [isLoading, setIsLoading] = useState(true)
 
@@ -14,12 +15,20 @@ const CommitList = ({commits}:CommitListProps) => {
         if(commits?.length > 0){
             setIsLoading(false)
         }
-    }, [commits])
+    }, [commits, error])
+
+    if(error){
+        return (
+            <div className="flex flex-row items-center justify-center mt-8">
+                User/repository does not exist.
+            </div>
+        )
+    }
 
     return (
         <div className="main flex flex-col p-8 gap-4">
             {
-                isLoading && <Spinner />
+                isLoading && <Spinner /> 
             }
             {
                 commits?.length > 0 ?

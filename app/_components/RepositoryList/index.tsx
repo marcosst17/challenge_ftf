@@ -5,10 +5,11 @@ import ToggleComponent from "../Toggle/index"
 import RepositoryItem from "./RepositoryItem"
 
 type RepositoryListProps = {
-    repos:any[]
+    repos:any[],
+    error:boolean,
 }
 
-const RepositoryList = ({repos}:RepositoryListProps) => {
+const RepositoryList = ({repos, error}:RepositoryListProps) => {
 
     const [filteredRepos, setFilteredRepos] = useState(repos)
     const [allRepos, setAllRepos] = useState(repos)
@@ -32,6 +33,9 @@ const RepositoryList = ({repos}:RepositoryListProps) => {
 
 
     useEffect(() => {
+        if(error){
+            setIsLoading(false)
+        }
         if(onStartup && repos?.length > 0){
             setIsLoading(false)
             // Check once to fill state
@@ -43,7 +47,15 @@ const RepositoryList = ({repos}:RepositoryListProps) => {
         if(repos?.length > 0) {
             setAllRepos(repos)
         }
-    }, [repos, onStartup])
+    }, [repos, onStartup, error])
+
+    if(!isLoading && error){
+        return (
+            <div className="flex flex-row items-center justify-center mt-8">
+                User does not exist.
+            </div>
+        )
+    }
 
 
     return (
