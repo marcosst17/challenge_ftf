@@ -30,6 +30,10 @@ body {
   justify-content: space-between;
 }
 
+.primary-text {
+  color: var(--primary-text-color);
+}
+
 .secondary-text {
   color: var(--secondary-text-color);
 }
@@ -104,6 +108,7 @@ input:checked + .slider:before {
 
 .commit-relative{
   position: relative;
+  overflow-wrap: anywhere;
 }
 
 .commit-message-div {
@@ -116,12 +121,17 @@ input:checked + .slider:before {
   right: 10px;
 }
 
+.homepage-shortcut-div .newtab-icon {
+  color: white;
+  bottom: -30px;
+}
+
 @media (min-width: 1024px) {
   .commit-message-div {
     width: 100%;
   }
   .commit-icon {
-    position: initial;
     width: 24px;
+    bottom: 15px;
   }
 }

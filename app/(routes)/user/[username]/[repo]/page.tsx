@@ -17,7 +17,7 @@ const RepoPage = ({params}:any) => {
     return (
         <div className="text-slate-100 font-bold">
             <div className="m-auto mt-[2rem] lg:w-1/4 text-center">
-                <p>Commits</p>
+                <p>{params.repo}</p>
             </div>
             <CommitList commits={repoCommits} />
         </div>

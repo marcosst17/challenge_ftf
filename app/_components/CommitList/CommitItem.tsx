@@ -1,5 +1,6 @@
 import formatDate from "@/app/_utils/formatDate";
 import Link from "@/node_modules/next/link";
+import { NewTabIcon } from "../IconLibrary/index";
 
 type CommitItemProps = {
     author:string,
@@ -18,7 +19,7 @@ const CommitItem = ({author, date, message, html_url}:CommitItemProps) => {
             <div className="flex flex-col">
                 <a href={html_url} target="_blank">
                     <div className="flex flex-row commit-message-div align-baseline mb-2">
-                        <svg viewBox="0 0 24 24" focusable="false" className="commit-icon"><g fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><path d="M15 3h6v6"></path><path d="M10 14L21 3"></path></g></svg>
+                        <NewTabIcon width="24" height="24" className="commit-icon" />
                         <h2 className="text-xl primary-text font-bold underline underline-offset-4 tracking-wide">{message}</h2>
                     </div>
                 </a>
