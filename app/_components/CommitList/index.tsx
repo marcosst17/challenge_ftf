@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react"
+import Spinner from "../IconLibrary/Spinner"
 import CommitItem from "./CommitItem"
 
 interface CommitListProps {
@@ -6,8 +8,19 @@ interface CommitListProps {
 
 const CommitList = ({commits}:CommitListProps) => {
 
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+        if(commits?.length > 0){
+            setIsLoading(false)
+        }
+    }, [commits])
+
     return (
         <div className="main flex flex-col p-8 gap-4">
+            {
+                isLoading && <Spinner />
+            }
             {
                 commits?.length > 0 ?
                 commits.map(el => {

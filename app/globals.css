@@ -126,6 +126,38 @@ input:checked + .slider:before {
   bottom: -30px;
 }
 
+.spinner {
+  text-align: center;
+}
+
+.bounce1,
+.bounce2,
+.bounce3 {
+  width: 15px;
+  height: 15px;
+  background-color: #333;
+  border-radius: 100%;
+  display: inline-block;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.bounce1 {
+  animation-delay: -0.32s;
+}
+
+.bounce2 {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(0.0);
+  }
+  50% {
+    transform: scale(1.0);
+  }
+}
+
 @media (min-width: 1024px) {
   .commit-message-div {
     width: 100%;

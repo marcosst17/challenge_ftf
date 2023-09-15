@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
+import Spinner from "../IconLibrary/Spinner"
 import ToggleComponent from "../Toggle/index"
 import RepositoryItem from "./RepositoryItem"
 
@@ -12,6 +13,7 @@ const RepositoryList = ({repos}:RepositoryListProps) => {
     const [filteredRepos, setFilteredRepos] = useState(repos)
     const [allRepos, setAllRepos] = useState(repos)
     const [reposShown, setReposShown] = useState(repos)
+    const [isLoading, setIsLoading] = useState(true)
     const [onStartup, setOnStartup] = useState(true)
 
     const [isChecked, setIsChecked] = useState(false);
@@ -31,6 +33,7 @@ const RepositoryList = ({repos}:RepositoryListProps) => {
 
     useEffect(() => {
         if(onStartup && repos?.length > 0){
+            setIsLoading(false)
             // Check once to fill state
             let notForked = repos.filter((el:any) => !el.fork)
             setFilteredRepos(notForked)
@@ -50,6 +53,9 @@ const RepositoryList = ({repos}:RepositoryListProps) => {
                 <ToggleComponent handleToggle={handleToggle} isChecked={isChecked} />
             </div>
             <div className="flex flex-col p-8 gap-4 lg:w-1/2 m-auto">
+                {
+                    isLoading && <Spinner />
+                }
                 {
                     reposShown?.length > 0 ?
                     reposShown.map(el => {
