@@ -68,7 +68,7 @@
 
     In the root of the project create a ".env" file, and inside put this code, replacing YOUR-TOKEN with the token you copied in the last step:
    ```javascript
-   NEXT_PUBLIC_GH_TOKEN=<your-token>
+   NEXT_PUBLIC_GH_TOKEN="YOUR-TOKEN"
     ```
 
 3. **Run npm install**
